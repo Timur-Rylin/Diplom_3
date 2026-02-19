@@ -1,37 +1,52 @@
 package com.stellarburgers.helpers;
 
-import org.openqa.selenium.WebDriver;
-import com.stellarburgers.pages.*;
+import io.qameta.allure.Step;
+import io.restassured.RestAssured;
+import io.restassured.response.Response;
+import java.util.HashMap;
+import java.util.Map;
+import static io.restassured.RestAssured.given;
 
 public class UserHelper {
 
-    public static void registerUser(WebDriver driver) {
-        // Генерируем уникальный email
-        String email = TestData.getUniqueEmail();
-        System.out.println("Регистрируем пользователя с email: " + email);
+    @Step("Создание пользователя через API: {email}")
+    public static Response registerUser(String email, String password, String name) {
+        RestAssured.baseURI = TestData.API_BASE_URL;
 
-        MainPage mainPage = new MainPage(driver);
-        mainPage.open();
-        mainPage.clickLoginAccountButton();
+        Map<String, String> userData = new HashMap<>();
+        userData.put("email", email);
+        userData.put("password", password);
+        userData.put("name", name);
 
-        LoginPage loginPage = new LoginPage(driver);
-        loginPage.clickRegisterLink();
+        return given()
+                .header("Content-type", "application/json")
+                .body(userData)
+                .when()
+                .post("/auth/register");
+    }
 
-        RegistrationPage registrationPage = new RegistrationPage(driver);
-        registrationPage.setName(TestData.VALID_NAME);
-        registrationPage.setEmail(email);
-        registrationPage.setPassword(TestData.VALID_PASSWORD);
-        registrationPage.clickRegisterButton();
+    @Step("Удаление пользователя через API")
+    public static Response deleteUser(String accessToken) {
+        RestAssured.baseURI = TestData.API_BASE_URL;
 
-        // Ждем перехода на страницу входа
-        try {
-            Thread.sleep(3000);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
+        return given()
+                .header("Authorization", accessToken)
+                .when()
+                .delete("/auth/user");
+    }
 
-        // Сохраняем email для использования в тестах входа
-        TestData.EXISTING_USER_EMAIL = email;
-        System.out.println("Зарегистрирован пользователь: " + email);
+    @Step("Логин пользователя через API")
+    public static Response loginUser(String email, String password) {
+        RestAssured.baseURI = TestData.API_BASE_URL;
+
+        Map<String, String> credentials = new HashMap<>();
+        credentials.put("email", email);
+        credentials.put("password", password);
+
+        return given()
+                .header("Content-type", "application/json")
+                .body(credentials)
+                .when()
+                .post("/auth/login");
     }
 }

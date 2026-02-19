@@ -1,5 +1,6 @@
 package com.stellarburgers.pages;
 
+import io.qameta.allure.Step;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -11,9 +12,6 @@ import java.time.Duration;
 public class LoginPage {
     private WebDriver driver;
     private WebDriverWait wait;
-
-    @FindBy(xpath = "//h2[text()='Вход']")
-    private WebElement loginHeader;
 
     @FindBy(xpath = "//input[@name='name']")
     private WebElement emailInput;
@@ -30,63 +28,50 @@ public class LoginPage {
     @FindBy(xpath = "//a[text()='Восстановить пароль']")
     private WebElement recoverPasswordLink;
 
-    @FindBy(xpath = "//p[contains(@class, 'input__error')]")
-    private WebElement errorMessage;
-
     public LoginPage(WebDriver driver) {
         this.driver = driver;
         this.wait = new WebDriverWait(driver, Duration.ofSeconds(10));
         PageFactory.initElements(driver, this);
     }
 
+    @Step("Ввести email: {email}")
     public void setEmail(String email) {
-        wait.until(ExpectedConditions.visibilityOf(emailInput));
-        emailInput.clear();
-        emailInput.sendKeys(email);
+        wait.until(ExpectedConditions.visibilityOf(emailInput)).sendKeys(email);
     }
 
+    @Step("Ввести пароль")
     public void setPassword(String password) {
-        wait.until(ExpectedConditions.visibilityOf(passwordInput));
-        passwordInput.clear();
-        passwordInput.sendKeys(password);
+        wait.until(ExpectedConditions.visibilityOf(passwordInput)).sendKeys(password);
     }
 
+    @Step("Кликнуть по кнопке 'Войти'")
     public void clickLoginButton() {
-        wait.until(ExpectedConditions.elementToBeClickable(loginButton));
-        loginButton.click();
+        wait.until(ExpectedConditions.elementToBeClickable(loginButton)).click();
     }
 
+    @Step("Кликнуть по ссылке 'Зарегистрироваться'")
     public void clickRegisterLink() {
-        wait.until(ExpectedConditions.elementToBeClickable(registerLink));
-        registerLink.click();
+        wait.until(ExpectedConditions.elementToBeClickable(registerLink)).click();
     }
 
+    @Step("Кликнуть по ссылке 'Восстановить пароль'")
     public void clickRecoverPasswordLink() {
-        wait.until(ExpectedConditions.elementToBeClickable(recoverPasswordLink));
-        recoverPasswordLink.click();
+        wait.until(ExpectedConditions.elementToBeClickable(recoverPasswordLink)).click();
     }
 
+    @Step("Выполнить вход с email: {email}")
     public void login(String email, String password) {
-        wait.until(ExpectedConditions.visibilityOf(loginHeader));
         setEmail(email);
         setPassword(password);
         clickLoginButton();
     }
 
+    @Step("Проверить отображение поля ввода email")
     public boolean isEmailInputDisplayed() {
         try {
-            return emailInput.isDisplayed();
+            return wait.until(ExpectedConditions.visibilityOf(emailInput)).isDisplayed();
         } catch (Exception e) {
             return false;
-        }
-    }
-
-    public String getErrorMessage() {
-        try {
-            wait.until(ExpectedConditions.visibilityOf(errorMessage));
-            return errorMessage.getText();
-        } catch (Exception e) {
-            return "";
         }
     }
 }

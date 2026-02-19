@@ -6,18 +6,21 @@ import org.openqa.selenium.chrome.ChromeOptions;
 import java.time.Duration;
 
 public class BrowserDriver {
-    public static WebDriver getDriver(String browserName) {
-        System.setProperty("webdriver.chrome.driver", "drivers/chromedriver.exe");
+    private static final String BROWSER = System.getProperty("browser", "chrome");
 
-        ChromeOptions options = new ChromeOptions();
-        options.addArguments("--remote-allow-origins=*");
-        options.addArguments("--disable-notifications");
-
-        WebDriver driver = new ChromeDriver(options);
+    public static WebDriver getDriver() {
+        WebDriver driver;
+        if ("yandex".equalsIgnoreCase(BROWSER)) {
+            System.setProperty("webdriver.chrome.driver", "drivers/yandexdriver.exe");
+            ChromeOptions options = new ChromeOptions();
+            options.setBinary("C:\\Users\\YourUser\\AppData\\Local\\Yandex\\YandexBrowser\\Application\\browser.exe");
+            driver = new ChromeDriver(options);
+        } else {
+            System.setProperty("webdriver.chrome.driver", "drivers/chromedriver.exe");
+            driver = new ChromeDriver();
+        }
         driver.manage().window().maximize();
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
-        driver.manage().timeouts().pageLoadTimeout(Duration.ofSeconds(30));
-
         return driver;
     }
 }
