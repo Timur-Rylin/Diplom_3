@@ -1,0 +1,168 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="c82d9d4d-301c-4de5-bcb6-a0b9ca7ef973" name="Changes" comment="- Заменены Thread.sleep() на WebDriverWait&#10;- Добавлены @Step и @Description&#10;- Вынесены локаторы в Page Object&#10;- Добавлен API для создания/удаления пользователей&#10;- Настроен Allure отчет&#10;- Удалены лишние тесты">
+      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/com/stellarburgers/helpers/AllureListener.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/allure-results/0311e1a3-1bb6-4916-803f-2fe7c57be72f-result.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/allure-results/0bb022d7-d7a0-4883-8033-5d59f3f2eb3a-result.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/allure-results/0d73e0fb-5b4c-41a6-b22e-c1a4109dd5e6-result.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/allure-results/3f2605b4-0270-40c0-9dd6-5913c19a1ca7-result.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/allure-results/565d41a3-ee4a-47d7-ba12-4f57943a0172-result.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/allure-results/60901c38-f2d8-44b0-bf85-80ed235a2b76-result.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/allure-results/6135287c-385d-40af-9acd-690b996f2c24-result.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/allure-results/665dca01-f620-44e3-8fbd-53a62c8bdc7e-result.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/allure-results/8b18d99d-d4ed-483e-9133-8cabf3594e7f-result.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/allure-results/995920e3-dc63-4e6c-ab3a-ef34a8e9c564-result.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/allure-results/a02b0093-83d2-41ef-bf95-992394fd9717-result.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/allure-results/afdcafd4-fd10-4b34-b639-5a9d497f5b4d-result.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/allure-results/b2e653aa-364d-49c3-88f8-1d40a34f9ee6-result.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/allure-results/d25f532e-39f2-4c60-b142-628d0ce18f7c-result.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/allure-results/ed16dce2-ecf2-4e77-97eb-cd1dcb3e3f1a-result.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/allure-results/f2787060-4fa1-413f-bbc5-2e7071659b16-result.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/allure-results/f3904f5c-0704-43cd-a57f-ed2fa6d6b4f2-result.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/testCompile/default-testCompile/createdFiles.lst" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/testCompile/default-testCompile/inputFiles.lst" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/surefire-reports/2026-02-22T15-35-50_404.dumpstream" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/surefire-reports/TEST-com.stellarburgers.tests.ConstructorTest.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/surefire-reports/TEST-com.stellarburgers.tests.LoginTest.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/surefire-reports/TEST-com.stellarburgers.tests.RegistrationTest.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/surefire-reports/com.stellarburgers.tests.ConstructorTest.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/surefire-reports/com.stellarburgers.tests.LoginTest.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/surefire-reports/com.stellarburgers.tests.RegistrationTest.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/test-classes/allure.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/test-classes/com/stellarburgers/helpers/AllureListener.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/test-classes/com/stellarburgers/helpers/BrowserDriver.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/test-classes/com/stellarburgers/helpers/TestData.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/test-classes/com/stellarburgers/helpers/UserHelper$Credentials.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/test-classes/com/stellarburgers/helpers/UserHelper$UserData.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/test-classes/com/stellarburgers/helpers/UserHelper.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/test-classes/com/stellarburgers/pages/LoginPage.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/test-classes/com/stellarburgers/pages/MainPage.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/test-classes/com/stellarburgers/pages/PasswordRecoveryPage.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/test-classes/com/stellarburgers/pages/ProfilePage.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/test-classes/com/stellarburgers/pages/RegistrationPage.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/test-classes/com/stellarburgers/tests/ConstructorTest.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/test-classes/com/stellarburgers/tests/LoginTest.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/test-classes/com/stellarburgers/tests/RegistrationTest.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/stellarburgers/helpers/UserHelper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/stellarburgers/helpers/UserHelper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/stellarburgers/pages/LoginPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/stellarburgers/pages/LoginPage.java" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="main" />
+      </map>
+    </option>
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;,
+    &quot;assignee&quot;: &quot;Timur-Rylin&quot;
+  }
+}</component>
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;git@github.com:Timur-Rylin/Diplom_3.git&quot;,
+    &quot;accountId&quot;: &quot;f9e78df7-260e-45a9-b72c-d92341f04871&quot;
+  }
+}</component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 2
+}</component>
+  <component name="ProjectId" id="38jqOGnpFmAoB1415tRikNxFoWd" />
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ModuleVcsDetector.initialDetectionPerformed&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;#1 on develop3&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;D:/Diplom_1.2/Diplom_3&quot;,
+    &quot;onboarding.tips.debug.path&quot;: &quot;D:/Diplom_1.2/Diplom_3/src/main/java/ru/yandex/samokat/Main.java&quot;
+  }
+}</component>
+  <component name="RunManager">
+    <configuration default="true" type="JetRunConfigurationType">
+      <module name="Diplom_3" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="KotlinStandaloneScriptRunConfigurationType">
+      <module name="Diplom_3" />
+      <option name="filePath" />
+      <method v="2" />
+    </configuration>
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="c82d9d4d-301c-4de5-bcb6-a0b9ca7ef973" name="Changes" comment="" />
+      <created>1769323296039</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1769323296039</updated>
+    </task>
+    <task id="LOCAL-00001" summary="Что сделано:&#10;✅ Тесты регистрации:&#10;  - Успешная регистрация пользователя&#10;  - Валидация пароля (мин. 6 символов)&#10;&#10;✅ Тесты авторизации:&#10;  - Вход по кнопке «Войти в аккаунт» на главной&#10;  - Вход через кнопку «Личный кабинет»&#10;  - Вход через кнопку в форме регистрации&#10;  - Вход через кнопку в форме восстановления пароля&#10;&#10;✅ Тесты конструктора:&#10;  - Проверка переходов к разделам: «Булки», «Соусы», «Начинки»&#10;&#10;Технические детали:&#10;- Использован Selenium WebDriver 4.15.0&#10;- Настроен Allure для генерации отчетов&#10;- Реализованы Page Object Model&#10;- Добавлены вспомогательные классы для работы с пользователями&#10;- Настроен Maven для запуска тестов&#10;&#10;Примечание: Один тест (testNavigateToFillingsSection) падает по причине&#10;некорректного поведения приложения (ожидается 'Начинки', но получается 'Соусы')&quot;">
+      <option name="closed" value="true" />
+      <created>1769348483701</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1769348483701</updated>
+    </task>
+    <task id="LOCAL-00002" summary="- Заменены Thread.sleep() на WebDriverWait&#10;- Добавлены @Step и @Description&#10;- Вынесены локаторы в Page Object&#10;- Добавлен API для создания/удаления пользователей&#10;- Настроен Allure отчет&#10;- Удалены лишние тесты">
+      <option name="closed" value="true" />
+      <created>1771503993409</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1771503993409</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
+    <servers />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Что сделано:&#10;✅ Тесты регистрации:&#10;  - Успешная регистрация пользователя&#10;  - Валидация пароля (мин. 6 символов)&#10;&#10;✅ Тесты авторизации:&#10;  - Вход по кнопке «Войти в аккаунт» на главной&#10;  - Вход через кнопку «Личный кабинет»&#10;  - Вход через кнопку в форме регистрации&#10;  - Вход через кнопку в форме восстановления пароля&#10;&#10;✅ Тесты конструктора:&#10;  - Проверка переходов к разделам: «Булки», «Соусы», «Начинки»&#10;&#10;Технические детали:&#10;- Использован Selenium WebDriver 4.15.0&#10;- Настроен Allure для генерации отчетов&#10;- Реализованы Page Object Model&#10;- Добавлены вспомогательные классы для работы с пользователями&#10;- Настроен Maven для запуска тестов&#10;&#10;Примечание: Один тест (testNavigateToFillingsSection) падает по причине&#10;некорректного поведения приложения (ожидается 'Начинки', но получается 'Соусы')&quot;" />
+    <MESSAGE value="- Заменены Thread.sleep() на WebDriverWait&#10;- Добавлены @Step и @Description&#10;- Вынесены локаторы в Page Object&#10;- Добавлен API для создания/удаления пользователей&#10;- Настроен Allure отчет&#10;- Удалены лишние тесты" />
+    <option name="LAST_COMMIT_MESSAGE" value="- Заменены Thread.sleep() на WebDriverWait&#10;- Добавлены @Step и @Description&#10;- Вынесены локаторы в Page Object&#10;- Добавлен API для создания/удаления пользователей&#10;- Настроен Allure отчет&#10;- Удалены лишние тесты" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/ru/yandex/samokat/Main.java</url>
+          <line>13</line>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
+  </component>
+</project>

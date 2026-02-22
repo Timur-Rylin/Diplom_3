@@ -9,14 +9,53 @@ import static io.restassured.RestAssured.given;
 
 public class UserHelper {
 
+    public static class UserData {
+        private String email;
+        private String password;
+        private String name;
+
+        public UserData(String email, String password, String name) {
+            this.email = email;
+            this.password = password;
+            this.name = name;
+        }
+
+        public String getEmail() {
+            return email;
+        }
+
+        public String getPassword() {
+            return password;
+        }
+
+        public String getName() {
+            return name;
+        }
+    }
+
+    public static class Credentials {
+        private String email;
+        private String password;
+
+        public Credentials(String email, String password) {
+            this.email = email;
+            this.password = password;
+        }
+
+        public String getEmail() {
+            return email;
+        }
+
+        public String getPassword() {
+            return password;
+        }
+    }
+
     @Step("Создание пользователя через API: {email}")
     public static Response registerUser(String email, String password, String name) {
         RestAssured.baseURI = TestData.API_BASE_URL;
 
-        Map<String, String> userData = new HashMap<>();
-        userData.put("email", email);
-        userData.put("password", password);
-        userData.put("name", name);
+        UserData userData = new UserData(email, password, name);
 
         return given()
                 .header("Content-type", "application/json")
@@ -39,9 +78,7 @@ public class UserHelper {
     public static Response loginUser(String email, String password) {
         RestAssured.baseURI = TestData.API_BASE_URL;
 
-        Map<String, String> credentials = new HashMap<>();
-        credentials.put("email", email);
-        credentials.put("password", password);
+        Credentials credentials = new Credentials(email, password);
 
         return given()
                 .header("Content-type", "application/json")
